@@ -25,7 +25,6 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/sign-up' component={Login} />
-          <Route path='/register' component={Register}></Route>
           <Route path='/contact' component={Contact}></Route>
           <AuthenticatedRoute path="/upload" component={Upload}></AuthenticatedRoute>
           <AuthenticatedRoute path='/dictaphone' component={Dictaphone}></AuthenticatedRoute>
