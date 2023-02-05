@@ -114,8 +114,8 @@ const Upload = () => {
             <input type="file" onChange={handelSelectedFile}></input>
             {submitted && <p style={{'fontSize': '10px', 'color': 'white'}} >Très bien passe à la suite :) </p>}
             {transcripted && <p style={{'fontSize': '10px', 'color': 'white'}}>C'est tout bon, check ta Bibliothèque !</p>}
-            {errorTranscript && <p style={{'fontSize': '10px', 'color': 'white'}}>Il y a une erreur, contact kam ou essaye encore !</p>}
-            {errorSubmit && <p style={{'fontSize': '10px', 'color': 'white'}}> Il y a une erreur, contact kam ou essaye encore !</p>}
+            {errorTranscript && <p style={{'fontSize': '10px', 'color': 'white'}}>Il y a une erreur, contact Stéph ou essaye encore !</p>}
+            {errorSubmit && <p style={{'fontSize': '10px', 'color': 'white'}}> Il y a une erreur, contact Stéph ou essaye encore !</p>}
             <div className="hero-btns">    
             <Button className='btns'
             buttonStyle='btn--outline'
