@@ -14,29 +14,7 @@ const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {isAuthenticated, setIsAuthenticated} = useContext(Auth);
   const [alert, setAlert] = useState(false)
-
-  
-
-
-  const handleSubmit = async (e) =>{
-      e.preventDefault(); 
-      try{
-        const response = await login(email, username,password);
-        setIsAuthenticated(response);
-        history.replace("/profil")
-      } catch({ response}){
-        console.log(response);
-        setAlert(true)
-      }
-    }
-
-    useEffect(() => {
-      if (isAuthenticated) {
-        history.replace('/profil');
-      }
-    }, [history, isAuthenticated]);
   
   
 
@@ -93,7 +71,7 @@ const Login = ({ history }) => {
             Annuler
           </Button>
           </div>
-          {alert && <p style={{"color" : "white"}}>Oups ! Une erreur s'est produite, essaye encore ou appelle Kam !</p>}
+          {alert && <p style={{"color" : "white"}}>Oups ! Une erreur s'est produite, essaye encore ou appelle Stéph !</p>}
       </form>
       <Footer/>
     </div>
