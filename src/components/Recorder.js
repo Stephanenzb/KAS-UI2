@@ -173,7 +173,7 @@ const Recorder = () =>{
             ).catch(err => {
                 console.log(err)
                 setErrorTranscript(true);
-                //setTranscripted("Oups ! Il y a une erreur dans le système, vérifie ta qualité audio, ou contacte kamkam !")
+                //setTranscripted("Oups ! Il y a une erreur dans le système, vérifie ta qualité audio, ou contacte Stéph !")
             })
           }
 
@@ -259,7 +259,7 @@ const Recorder = () =>{
             buttonSize='btn--medium'
             onClick={transcript}
             >Transcript</LoginButton>
-            {errorTranscript && <p style={{'fontSize': '10px', 'color': 'white'}}>Il y a une erreur, contact kam ou essaye encore !</p>}
+            {errorTranscript && <p style={{'fontSize': '10px', 'color': 'white'}}>Il y a une erreur, contacte Stéph ou essaye encore !</p>}
             
         <div className="recorder-area">
         <textarea style={{'width' : '689px', 'height': '144px'}} placeholder={transcriptedText}></textarea>
