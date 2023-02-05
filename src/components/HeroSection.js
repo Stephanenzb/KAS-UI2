@@ -17,7 +17,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          path='profil'
+          path='/profil'
         >
           COMMENCEZ
         </Button>
