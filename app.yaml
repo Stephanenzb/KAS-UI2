@@ -1,5 +1,4 @@
 runtime: nodejs16
-service : kasui
 handlers:
   # Serve all static files with url ending with a file extension
   - url: /(.*\..+)$
