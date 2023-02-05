@@ -19,15 +19,7 @@ function HeroSection() {
           buttonSize='btn--large'
           path='sign-up'
         >
-          CONNEXION
-        </Button>
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-          path='register'
-        >
-          INSCRIPTION
+          COMMENCEZ
         </Button>
       </div>
     </div>
