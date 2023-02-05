@@ -7,16 +7,35 @@ import './Login.css'
 import {login} from "../services/AuthApi"
 import Footer from '../Footer';
 import videoSource from '../../assets/videos/video-1.mp4';
-
-
-
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const {isAuthenticated, setIsAuthenticated} = useContext(Auth);
   const [alert, setAlert] = useState(false)
-  
-  
+
+
+
+
+  const handleSubmit = async (e) =>{
+      e.preventDefault(); 
+      try{
+        const response = await login(email, username,password);
+        setIsAuthenticated(response);
+        history.replace("/profil")
+      } catch({ response}){
+        console.log(response);
+        setAlert(true)
+      }
+    }
+
+    useEffect(() => {
+      if (isAuthenticated) {
+        history.replace('/profil');
+      }
+    }, [history, isAuthenticated]);
+
+
 
   return (
     <div className="login-container">
@@ -58,25 +77,14 @@ const Login = ({ history }) => {
               onChange={(e) => setPassword(e.target.value)}
               style={{width:"90%", padding:"12px 50px", margin: "8px 0", boxSizing:"border-box"}}
             />
-          </div>
-          <div className="login-btns">    
-          <LoginButton className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-          type='submit'>Connexion</LoginButton>
-          <Button className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-          path='/'>
+	@@ -93,7 +71,7 @@
             Annuler
           </Button>
           </div>
-          {alert && <p style={{"color" : "white"}}>Oups ! Une erreur s'est produite, essaye encore ou appelle Stéph !</p>}
+          {alert && <p style={{"color" : "white"}}>Oups ! Une erreur s'est produite, essaye encore ou appelle Kam !</p>}
       </form>
       <Footer/>
     </div>
   );
 };
-
 export default Login;
-
