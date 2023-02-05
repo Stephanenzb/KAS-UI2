@@ -13,7 +13,7 @@ function Footer() {
               <i class='fab fa-music' />
             </Link>
           </div>
-          <small class='website-rights'>KAS © 2022</small>
+          <small class='website-rights'>KAS © 2023</small>
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
