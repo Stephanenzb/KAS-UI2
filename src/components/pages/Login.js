@@ -7,6 +7,9 @@ import './Login.css'
 import {login} from "../services/AuthApi"
 import Footer from '../Footer';
 import videoSource from '../../assets/videos/video-1.mp4';
+
+
+
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -14,7 +17,7 @@ const Login = ({ history }) => {
   const {isAuthenticated, setIsAuthenticated} = useContext(Auth);
   const [alert, setAlert] = useState(false)
 
-
+  
 
 
   const handleSubmit = async (e) =>{
@@ -34,8 +37,8 @@ const Login = ({ history }) => {
         history.replace('/profil');
       }
     }, [history, isAuthenticated]);
-
-
+  
+  
 
   return (
     <div className="login-container">
@@ -77,7 +80,16 @@ const Login = ({ history }) => {
               onChange={(e) => setPassword(e.target.value)}
               style={{width:"90%", padding:"12px 50px", margin: "8px 0", boxSizing:"border-box"}}
             />
-	@@ -93,7 +71,7 @@
+          </div>
+          <div className="login-btns">    
+          <LoginButton className='btns'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+          type='submit'>Connexion</LoginButton>
+          <Button className='btns'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+          path='/'>
             Annuler
           </Button>
           </div>
@@ -87,4 +99,6 @@ const Login = ({ history }) => {
     </div>
   );
 };
+
 export default Login;
+
