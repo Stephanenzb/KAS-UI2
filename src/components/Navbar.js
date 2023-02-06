@@ -2,22 +2,16 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import { logout } from './services/AuthApi';
-import Auth from './contextes/Auth';
 import './Navbar.css';
 import { LoginButton } from './LoginButton';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const {isAuthenticated, setIsAuthenticated} = useContext(Auth);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const handleLogout = () => {
-    logout();
-    setIsAuthenticated(false);
-  }
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -88,7 +82,6 @@ function Navbar() {
             </li>
           </ul>
           {button && <Button buttonStyle='btn--outline' path="/contact"> KAS : l'équipe ! <i className='far fa-play-circle' /></Button>}
-          {isAuthenticated && <LoginButton buttonStyle='btn--outline' buttonSize='btn--large' onClick={handleLogout}>Deconnexion</LoginButton>}
         </div>
       </nav>
     </>
