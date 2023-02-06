@@ -4,7 +4,6 @@ import { Button } from "./Button";
 import "./HeroSection.css"
 import videoSource from '../assets/videos/video-1.mp4';
 import Footer from "./Footer";
-import * as firebase from "firebase-admin";
 
 
 
