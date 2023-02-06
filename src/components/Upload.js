@@ -16,7 +16,6 @@ const Upload = () => {
     const [submitted, setSubmitted] = useState(false)
     const [errorSubmit, setErrorSubmit] = useState(false);
     const [errorTranscript, setErrorTranscript] = useState(false);
-    const path = require("path");
     const { Storage } = require("@google-cloud/storage");
     const Multer = require("multer");
     
