@@ -10,6 +10,9 @@ import cors from "cors";
 import { format } from "util";
 import Multer from "multer";
 
+app.use(express.static(src));
+app.use(cors());
+
 
 
 
@@ -22,12 +25,14 @@ const Upload = () => {
     const [submitted, setSubmitted] = useState(false)
     const [errorSubmit, setErrorSubmit] = useState(false);
     const [errorTranscript, setErrorTranscript] = useState(false);
+    const express = require("express");
     const { Storage } = require("@google-cloud/storage");
     const app = express();
-    const port = 5000;
-   
+    const port = 8080;
+    const path = require("path");
+    const Multer = require("multer");
 
-    app.use(cors());
+   
 
         let projectId = "lastkas"; // 
         let keyFilename = "lastkas.json"; 
