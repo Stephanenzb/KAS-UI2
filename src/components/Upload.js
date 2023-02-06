@@ -16,16 +16,7 @@ const Upload = () => {
     const [submitted, setSubmitted] = useState(false)
     const [errorSubmit, setErrorSubmit] = useState(false);
     const [errorTranscript, setErrorTranscript] = useState(false);
-    const { Storage } = require("@google-cloud/storage");
-    const Multer = require("multer");
-    
-    
-    const multer = Multer({
-      storage: Multer.memoryStorage(),
-      limits: {
-                fileSize: 5 * 1024 * 1024,
-               },
-    });
+    const { Storage } = require("@google-cloud/storage");    
 
     let projectId = "lastkas"; // 
     let keyFilename = "lastkas.json"; 
