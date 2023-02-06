@@ -7,7 +7,6 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Contact from './components/pages/Contact';
 import Profil from './components/pages/Profil'
-import Auth from "./components/contextes/Auth";
 import Dictaphone from './components/Dictaphone';
 import Recorder from './components/Recorder';
 import TranscriptionData from './components/TranscriptionData';
