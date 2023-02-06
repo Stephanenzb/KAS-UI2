@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import { logout } from './services/AuthApi';
 import './Navbar.css';
 import { LoginButton } from './LoginButton';
 
