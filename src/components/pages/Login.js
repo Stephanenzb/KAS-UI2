@@ -1,6 +1,5 @@
 import '../../App.css';
 import React, { useState, useContext, useEffect} from "react";
-import Auth from "../contextes/Auth";
 import { Button } from '../Button';
 import {LoginButton} from '../LoginButton'
 import './Login.css'
