@@ -29,6 +29,7 @@ function Navbar() {
   window.addEventListener('resize', showButton);
 
   return (
+    <>
       <nav className='navbar'>
         <div className='navbar-container'>
           <div Link to="/" className='menu-icon' onClick={handleClick}>
