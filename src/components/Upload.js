@@ -29,8 +29,6 @@ const Upload = () => {
 
     app.use(cors());
 
-    app.post("/upload-file-to-cloud-storage", multer.single("file"), function (req, res, next) { if (!req.file) { res.status(400).send("No file uploaded."); return; }
-
         let projectId = "lastkas"; // 
         let keyFilename = "lastkas.json"; 
         const storage = new Storage({
