@@ -3,7 +3,6 @@ import React, { useState, useContext, useEffect} from "react";
 import { Button } from '../Button';
 import {LoginButton} from '../LoginButton'
 import './Login.css'
-import {login} from "../services/AuthApi"
 import Footer from '../Footer';
 import videoSource from '../../assets/videos/video-1.mp4';
 
