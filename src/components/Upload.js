@@ -29,11 +29,7 @@ const Upload = () => {
 
     app.use(cors());
 
-        const cloudStorage = new Storage({ keyFilename: ${__dirname}/service_account_key.json, projectId: "PROJECT_ID", }); const bucketName = "YOUR_BUCKET_NAME";
-
-        const bucket = cloudStorage.bucket(bucketName);
-
-    axios.post("/upload-file-to-cloud-storage", multer.single("file"), function (req, res, next) { if (!req.file) { res.status(400).send("No file uploaded."); return; }
+    app.post("/upload-file-to-cloud-storage", multer.single("file"), function (req, res, next) { if (!req.file) { res.status(400).send("No file uploaded."); return; }
 
         let projectId = "lastkas"; // 
         let keyFilename = "lastkas.json"; 
