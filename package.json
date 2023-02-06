@@ -55,6 +55,8 @@
     "mic-recorder-to-mp3": "^2.2.2"
   },
   "browser": {
-    "fs": false
-  }
+  "fs": false,
+  "path": false,
+  "os": false
+}
 }
