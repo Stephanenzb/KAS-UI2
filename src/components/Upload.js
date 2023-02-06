@@ -37,18 +37,18 @@ const Upload = () => {
     const bucket = storage.bucket("lastkas_bucket");
     
     
-    // Gets all files in the defined bucket
-app.get("/upload", async (req, res) => {
-  try {
-    const [files] = await bucket.getFiles();
-    res.send([files]);
-    console.log("Réussi");
-  } catch (error) {
-    res.send("Erreur:" + error);
-  }
-});
-// Streams file upload to Google Storage
-app.post("/upload", multer.single("wavfile"), (req, res) => {
+   
+    axios.get("/upload", async (req, res) => {
+       try {
+            const [files] = await bucket.getFiles();
+            res.send([files]);
+            console.log("Réussi");
+       } catch (error) {
+         res.send("Erreur:" + error);
+       }
+   });
+
+axios.post("/upload", multer.single("wavfile"), (req, res) => {
   console.log("Made it /upload");
   try {
     if (req.file) {
