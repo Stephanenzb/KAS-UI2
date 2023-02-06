@@ -32,29 +32,24 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          {isAuthenticated &&
           <Link to='/profil' className='navbar-logo' onClick={closeMobileMenu}>
           KAS
           <i class='fa fa-music' />
           </Link>
-          }
-          {!isAuthenticated &&
           <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
           KAS
           <i class='fa fa-music' />
-        </Link> }
+        </Link>
           
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              {isAuthenticated && 
               <Link to="/TranscriptedAudio" className='nav-links' onClick={closeMobileMenu}>
               Bibliothèque
             </Link>
               }
-              {!isAuthenticated &&
               <Link to="/" className='nav-links' onClick={closeMobileMenu}>
               Home
             </Link>
