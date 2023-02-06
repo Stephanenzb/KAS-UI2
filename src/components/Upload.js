@@ -6,6 +6,7 @@ import videoSource from '../assets/videos/video-1.mp4';
 import Footer from "./Footer";
 
 
+
 const Upload = () => {
     const [selectedFile, setSelectedFile] = useState(null)
     const [url, setUrl] = useState("");
@@ -15,7 +16,57 @@ const Upload = () => {
     const [submitted, setSubmitted] = useState(false)
     const [errorSubmit, setErrorSubmit] = useState(false);
     const [errorTranscript, setErrorTranscript] = useState(false);
+    const path = require("path");
+    const { Storage } = require("@google-cloud/storage");
+    const Multer = require("multer");
+    
+    
+    const multer = Multer({
+      storage: Multer.memoryStorage(),
+      limits: {
+                fileSize: 5 * 1024 * 1024,
+               },
+    });
 
+    let projectId = "lastkas"; // 
+    let keyFilename = "lastkas.json"; 
+    const storage = new Storage({
+        projectId,
+        keyFilename,
+    });
+    const bucket = storage.bucket("lastkas_bucket");
+    
+    
+    // Gets all files in the defined bucket
+app.get("/upload", async (req, res) => {
+  try {
+    const [files] = await bucket.getFiles();
+    res.send([files]);
+    console.log("Réussi");
+  } catch (error) {
+    res.send("Erreur:" + error);
+  }
+});
+// Streams file upload to Google Storage
+app.post("/upload", multer.single("wavfile"), (req, res) => {
+  console.log("Made it /upload");
+  try {
+    if (req.file) {
+      console.log("Upload en cours...");
+      const blob = bucket.file(req.file.originalname);
+      const blobStream = blob.createWriteStream();
+
+      blobStream.on("finish", () => {
+        res.status(200).send("Upload réussi");
+        console.log("Upload réussi");
+      });
+      blobStream.end(req.file.buffer);
+    } else throw "Erreur, l'upload a échoué";
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+    
 
     const handelSelectedFile = (e) =>{
         setSelectedFile(e.target.files[0])
