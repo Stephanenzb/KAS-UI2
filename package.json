@@ -1,7 +1,7 @@
 {
   "name": "navbar-dropdown-v1",
   "version": "0.1.0",
-  "main": "/src/components/upload.js" 
+  "main": "/src/components/upload.js", 
   "private": true,
   "dependencies": {
     "@appbaseio/reactivesearch": "^3.31.0",
