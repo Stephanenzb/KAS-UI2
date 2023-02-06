@@ -4,6 +4,12 @@ import { Button } from "./Button";
 import "./HeroSection.css"
 import videoSource from '../assets/videos/video-1.mp4';
 import Footer from "./Footer";
+import { Storage } from "@google-cloud/storage";
+import express from "express";
+import cors from "cors";
+import { format } from "util";
+import Multer from "multer";
+
 
 
 
@@ -16,7 +22,20 @@ const Upload = () => {
     const [submitted, setSubmitted] = useState(false)
     const [errorSubmit, setErrorSubmit] = useState(false);
     const [errorTranscript, setErrorTranscript] = useState(false);
-    const { Storage } = require("@google-cloud/storage");    
+    const { Storage } = require("@google-cloud/storage");
+    const app = express();
+    const port = 5000;
+   
+
+    const multer = Multer({ storage: Multer.memoryStorage(), limits: { fileSize: 5 _ 1024 _ 1024, // no larger than 5mb, you can change as needed. }, });
+
+    app.use(cors());
+
+    const cloudStorage = new Storage({ keyFilename: ${__dirname}/service_account_key.json, projectId: "PROJECT_ID", }); const bucketName = "YOUR_BUCKET_NAME";
+
+    const bucket = cloudStorage.bucket(bucketName);
+
+app.post("/upload-file-to-cloud-storage", multer.single("file"), function (req, res, next) { if (!req.file) { res.status(400).send("No file uploaded."); return; }
 
     let projectId = "lastkas"; // 
     let keyFilename = "lastkas.json"; 
@@ -24,6 +43,7 @@ const Upload = () => {
         projectId,
         keyFilename,
     });
+    const bucketName = "lastkas_bucket";                                                                                         
     const bucket = storage.bucket("lastkas_bucket");
     
     
