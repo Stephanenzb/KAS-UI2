@@ -10,6 +10,12 @@ import cors from "cors";
 import { format } from "util";
 import Multer from "multer";
 
+const app = express();
+const path = require("path");
+const express = require("express");
+const Multer = require("multer");
+const { Storage } = require("@google-cloud/storage");
+
 app.use(express.static(src));
 app.use(cors());
 
@@ -25,15 +31,12 @@ const Upload = () => {
     const [submitted, setSubmitted] = useState(false)
     const [errorSubmit, setErrorSubmit] = useState(false);
     const [errorTranscript, setErrorTranscript] = useState(false);
-    const express = require("express");
-    const { Storage } = require("@google-cloud/storage");
-    const app = express();
-    const port = 8080;
-    const path = require("path");
-    const Multer = require("multer");
 
    
 
+    
+    /* Storage */
+    
         let projectId = "lastkas"; // 
         let keyFilename = "lastkas.json"; 
         const storage = new Storage({
@@ -44,7 +47,7 @@ const Upload = () => {
         const bucket = storage.bucket("lastkas_bucket");
     
     
-   
+   /* Upload */
     axios.get("/upload", async (req, res) => {
        try {
             const [files] = await bucket.getFiles();
