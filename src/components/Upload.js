@@ -4,21 +4,6 @@ import { Button } from "./Button";
 import "./HeroSection.css"
 import videoSource from '../assets/videos/video-1.mp4';
 import Footer from "./Footer";
-import { Storage } from "@google-cloud/storage";
-import express from "express";
-import cors from "cors";
-import { format } from "util";
-import Multer from "multer";
-
-const app = express();
-const path = require("path");
-const express = require("express");
-const Multer = require("multer");
-const { Storage } = require("@google-cloud/storage");
-
-app.use(express.static(src));
-app.use(cors());
-
 
 
 
@@ -33,49 +18,6 @@ const Upload = () => {
     const [errorTranscript, setErrorTranscript] = useState(false);
 
    
-
-    
-    /* Storage */
-    
-        let projectId = "lastkas"; // 
-        let keyFilename = "lastkas.json"; 
-        const storage = new Storage({
-            projectId,
-            keyFilename,
-        });
-        const bucketName = "lastkas_bucket";                                                                                         
-        const bucket = storage.bucket("lastkas_bucket");
-    
-    
-   /* Upload */
-    axios.get("/upload", async (req, res) => {
-       try {
-            const [files] = await bucket.getFiles();
-            res.send([files]);
-            console.log("Réussi");
-       } catch (error) {
-         res.send("Erreur:" + error);
-       }
-   });
-
-axios.post("/upload", multer.single("wavfile"), (req, res) => {
-  console.log("Made it /upload");
-  try {
-    if (req.file) {
-      console.log("Upload en cours...");
-      const blob = bucket.file(req.file.originalname);
-      const blobStream = blob.createWriteStream();
-
-      blobStream.on("finish", () => {
-        res.status(200).send("Upload réussi");
-        console.log("Upload réussi");
-      });
-      blobStream.end(req.file.buffer);
-    } else throw "Erreur, l'upload a échoué";
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
     
 
     const handelSelectedFile = (e) =>{
@@ -86,7 +28,7 @@ axios.post("/upload", multer.single("wavfile"), (req, res) => {
         e.preventDefault();
         const data = new FormData()
         data.append("audio-file", selectedFile)
-        axios.post("https://metal-repeater-352000.uc.r.appspot.com/upload", data,
+        axios.post("https://kasui-dot-lastkas.ey.r.appspot.com/upload", data,
         ).then(
             res => {
                 setUrl(res.data.url);
