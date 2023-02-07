@@ -44,7 +44,7 @@ const Upload = () => {
 
     const transcript = () =>{
         axios.get(
-            "https://kasapi-dot-metal-repeater-352000.uc.r.appspot.com/transcription-upload", {
+            "https://kasapi-dot-lastkas.ey.r.appspot.com/transcription-upload", {
                 params : {
                     public_url: url
                 }
@@ -69,7 +69,7 @@ const Upload = () => {
         const id = Math.floor(Math.random() * 100)
        
         axios.post(
-            "https://kasapi-dot-metal-repeater-352000.uc.r.appspot.com/store-transcription/bdd_kas_transcript", "bdd_kas_transcript",
+            "https://kasapi-dot-lastkas.ey.r.appspot.com/store-transcription/bdd_kas_transcript", "bdd_kas_transcript",
               {
                   params: {
                       title:id,
@@ -92,7 +92,7 @@ const Upload = () => {
 
     const getData = () =>{
         return axios.get(
-            "https://kasapi-dot-metal-repeater-352000.uc.r.appspot.com/stored_transcriptions", {
+            "https://kasapi-dot-lastkas.ey.r.appspot.com/stored_transcriptions", {
                 params : {
                     index_name : "bdd_kas_transcript" 
                 }
