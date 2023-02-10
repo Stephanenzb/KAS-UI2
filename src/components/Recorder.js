@@ -155,7 +155,7 @@ const Recorder = () =>{
 
     const transcript = () =>{
         axios.get(
-            "https://kasapi-dot-lastkas.ey.r.appspot.com/transcription", {
+            "https://lastkas.ey.r.appspot.com/transcription", {
                 params : {
                     public_url: url
                 }
