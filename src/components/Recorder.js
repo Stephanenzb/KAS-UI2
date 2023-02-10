@@ -80,7 +80,7 @@ const Recorder = () =>{
             const id = Math.floor(Math.random() * 100)
             const fileName = id.toString() + 'Input.wav'
             const newfile = urlToFile(value, fileName);
-            const newUrl = "gc://audio-kas/" + newfile.name
+            const newUrl = "gs://kas-audio/" + newfile.name
             setAudioFile(newfile)
             setUrl(newUrl)
         }catch({response}){
